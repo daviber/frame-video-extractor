@@ -407,10 +407,25 @@ export default function VideoFrameExtractor() {
           <div className="card">
             <canvas ref={canvasRef} className="canvas" style={{ aspectRatio: aspect }} />
             <div className="row">
-              <button onClick={exportCurrentFrame} disabled={!loaded} className="button primary">Esporta fotogramma (PNG)</button>
+                <button onClick={exportCurrentFrame} disabled={!loaded} className="button primary">
+                Esporta fotogramma (PNG)
+                </button>
             </div>
-            <div className="note">Il canvas rispetta il rapporto del video. L'export usa un click sintetico compatibile con Safari/iOS.</div>
-          </div>
+
+            {/* Nuovi controlli sul canvas */}
+            <div className="row">
+                <button onClick={()=> stepFrame(-1)} disabled={!loaded} className="button">
+                ⟨ Indietro 1 frame
+                </button>
+                <button onClick={()=> stepFrame(1)} disabled={!loaded} className="button">
+                Avanti 1 frame ⟩
+                </button>
+            </div>
+
+            <div className="note">
+                Il canvas rispetta il rapporto del video. L'export usa un click sintetico compatibile con Safari/iOS.
+            </div>
+            </div>
         </div>
 
         <div className="card">
